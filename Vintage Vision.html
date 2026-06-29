@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visión Vintage - Un viaje por la historia de la moda</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #fdfbf7;
+            color: #4a3e3d;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #ffffff;
+            border-bottom: 2px solid #e6dfd5;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        nav ul {
+            display: table-row;
+            list-style: none;
+            text-align: center;
+        }
+        nav ul li {
+            display: table-cell;
+            border: 1px solid #e6dfd5;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 10px;
+            text-decoration: none;
+            color: #5c4a42;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.3s, color 0.3s;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #c5a059;
+            color: #ffffff;
+        }
+        .hero {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #e6dfd5;
+            border-radius: 4px;
+        }
+        .hero-container {
+            display: table;
+            width: 100%;
+        }
+        .hero-left, .hero-right {
+            display: table-cell;
+            vertical-align: middle;
+            width: 50%;
+            padding: 20px;
+        }
+        .logo-box {
+            text-align: center;
+        }
+        .slogan {
+            font-style: italic;
+            font-size: 24px;
+            color: #c5a059;
+            margin-bottom: 20px;
+        }
+        .brand-title {
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #c5a059;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .brand-desc {
+            font-size: 16px;
+            color: #6e5d57;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .web-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 1px solid #e6dfd5;
+        }
+        .hero-img {
+            height: 350px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: #c5a059;
+            margin: 50px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 16px;
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #6e5d57;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Colecciones Grid */
+        .colecciones-table {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            margin-bottom: 40px;
+        }
+        .coleccion-item {
+            display: table-cell;
+            padding: 10px;
+            text-align: center;
+        }
+        .coleccion-box {
+            background: #fff;
+            border: 1px solid #e6dfd5;
+            padding: 15px;
+            border-radius: 4px;
+            height: 100%;
+        }
+        .coleccion-img {
+            height: 200px;
+            margin-bottom: 15px;
+        }
+        .coleccion-box h3 {
+            color: #c5a059;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .coleccion-box p {
+            font-size: 14px;
+            color: #6e5d57;
+        }
+        /* Historia layout */
+        .historia-block {
+            background: #fff;
+            border: 1px solid #e6dfd5;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        .historia-table {
+            display: table;
+            width: 100%;
+        }
+        .historia-cell {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .historia-text {
+            padding-right: 20px;
+        }
+        .historia-text-left {
+            padding-left: 20px;
+        }
+        .historia-cell h3 {
+            color: #c5a059;
+            margin-bottom: 15px;
+            font-size: 20px;
+            border-bottom: 1px solid #e6dfd5;
+            padding-bottom: 5px;
+        }
+        .historia-cell p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .historia-img-cell {
+            width: 250px;
+        }
+        .historia-img {
+            height: 250px;
+        }
+        /* Epocas Table */
+        .epocas-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            margin-bottom: 40px;
+            border: 1px solid #e6dfd5;
+        }
+        .epocas-table tr {
+            border-bottom: 1px solid #e6dfd5;
+        }
+        .epocas-table td {
+            padding: 20px;
+            vertical-align: middle;
+        }
+        .epoca-info h3 {
+            color: #c5a059;
+            margin-bottom: 10px;
+        }
+        .epoca-info ul {
+            list-style: none;
+            font-size: 14px;
+        }
+        .epoca-info ul li {
+            margin-bottom: 5px;
+        }
+        .epoca-info ul li strong {
+            color: #5c4a42;
+        }
+        .epoca-img-cell {
+            width: 180px;
+        }
+        .epoca-img {
+            height: 120px;
+        }
+        /* Diseñadores */
+        .disenadores-table {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            margin-bottom: 40px;
+        }
+        .disenador-item {
+            display: table-cell;
+            padding: 10px;
+            text-align: center;
+        }
+        .disenador-box {
+            background: #fff;
+            border: 1px solid #e6dfd5;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .disenador-img {
+            height: 180px;
+            margin-bottom: 15px;
+        }
+        .disenador-box h3 {
+            color: #c5a059;
+            margin-bottom: 10px;
+        }
+        .disenador-box p {
+            font-size: 14px;
+            color: #6e5d57;
+        }
+        /* Servicios */
+        .servicios-table {
+            display: table;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .servicios-left {
+            display: table-cell;
+            width: 65%;
+            vertical-align: top;
+            padding-right: 30px;
+        }
+        .servicios-right {
+            display: table-cell;
+            width: 35%;
+            vertical-align: top;
+        }
+        .servicio-card {
+            background: #fff;
+            border: 1px solid #e6dfd5;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .servicio-card h3 {
+            color: #c5a059;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .servicio-card p {
+            font-size: 14px;
+            color: #6e5d57;
+        }
+        .servicios-gallery-img {
+            height: 130px;
+            margin-bottom: 20px;
+        }
+        /* Contacto */
+        .contacto-table {
+            display: table;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .contacto-form-cell {
+            display: table-cell;
+            width: 60%;
+            padding-right: 30px;
+            vertical-align: top;
+        }
+        .contacto-info-cell {
+            display: table-cell;
+            width: 40%;
+            background: #fff;
+            border: 1px solid #e6dfd5;
+            padding: 25px;
+            vertical-align: top;
+            border-radius: 4px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e6dfd5;
+            background-color: #fff;
+            font-family: inherit;
+            border-radius: 4px;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #c5a059;
+        }
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+        .btn-submit {
+            background-color: #c5a059;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #b08c4b;
+        }
+        .contacto-info-cell h3 {
+            color: #c5a059;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-bottom: 1px solid #e6dfd5;
+            padding-bottom: 5px;
+        }
+        .contacto-info-cell p {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .contacto-info-cell strong {
+            color: #5c4a42;
+        }
+        footer {
+            background-color: #5c4a42;
+            color: #fdfbf7;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#colecciones" class="active">Colecciones</a></li>
+                <li><a href="#historia">Historia de la Moda</a></li>
+                <li><a href="#epocas">Épocas</a></li>
+                <li><a href="#disenadores">Diseñadores</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Inicio / Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="logo-box">
+                    <p class="slogan">"El pasado nunca pasa de moda."</p>
+                    <div class="brand-title">Vintage Vision</div>
+                    <p class="brand-desc">Un viaje por la historia de la moda, las tendencias icónicas y el estilo que sigue inspirando tendencias.</p>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="BCO.6c4f0a9b-b647-4905-87ed-ab0f949c6403.png" class="web-img hero-img" alt="Vintage Vision Main Style">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Colecciones -->
+        <section id="colecciones">
+            <h2 class="section-title">Colecciones</h2>
+            <p class="section-subtitle">Explora nuestras colecciones inspiradas en las épocas más icónicas de la moda. Piezas únicas que cuentan con historia.</p>
+            
+            <div class="colecciones-table">
+                <div class="coleccion-item">
+                    <div class="coleccion-box">
+                        <img src="ad6475db09b7ed6c18e55db69c611bf2.jpg" class="web-img coleccion-img" alt="Colección Años 50">
+                        <h3>Años 50</h3>
+                        <p>Feminidad clásica y elegancia atemporal.</p>
+                    </div>
+                </div>
+                <div class="coleccion-item">
+                    <div class="coleccion-box">
+                        <img src="ae1f448ffb2327e90785e58ecdb21030.jpg" class="web-img coleccion-img" alt="Colección Años 60">
+                        <h3>Años 60</h3>
+                        <p>Revolución, color y libertad de expresión.</p>
+                    </div>
+                </div>
+                <div class="coleccion-item">
+                    <div class="coleccion-box">
+                        <img src="c4cbe6c98a90f45592af93dc6c91f052.jpg" class="web-img coleccion-img" alt="Colección Años 70">
+                        <h3>Años 70</h3>
+                        <p>Espíritu bohemio y estilo desenfadado.</p>
+                    </div>
+                </div>
+                <div class="coleccion-item">
+                    <div class="coleccion-box">
+                        <img src="c7acb4a09c4116a84599e9d0558e3009.jpg" class="web-img coleccion-img" alt="Colección Años 80">
+                        <h3>Años 80</h3>
+                        <p>Exceso, audacia y estilo inconfundible.</p>
+                    </div>
+                </div>
+                <div class="coleccion-item">
+                    <div class="coleccion-box">
+                        <img src="cf93d69805b3bb2068c25cc3033dbf83.jpg" class="web-img coleccion-img" alt="Colección Años 90">
+                        <h3>Años 90</h3>
+                        <p>Minimalismo y actitud auténtica.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historia de la Moda -->
+        <section id="historia">
+            <h2 class="section-title">Historia de la moda</h2>
+            
+            <div class="historia-block">
+                <div class="historia-table">
+                    <div class="historia-cell historia-text">
+                        <h3>De la Antigüedad al Renacimiento</h3>
+                        <p>En las antiguas civilizaciones como Egipto, Grecia y Roma, la ropa representaba elegancia y jerarquía social. Se utilizaban túnicas, telas ligeras y accesorios decorativos elaborados con gran detalle. Durante la Edad Media, la vestimenta comenzó a diferenciar claramente a las clases mediante sociales colores, tejidos y adornos exclusivos para la nobleza.</p>
+                        <p>Con la llegada del Renacimiento, la moda se transformó en una expresión artística. Los vestidos voluminosos, los corsés, las mangas elaboradas y las telas lujosas reflejaban riqueza, sophistication y creatividad. Esta época marcó el inicio de una moda más refinada y detallada.</p>
+                    </div>
+                    <div class="historia-cell historia-img-cell">
+                        <img src="f0e203bc775c53f141fda71c699712d5.jpg" class="web-img historia-img" alt="Moda del Renacimiento">
+                    </div>
+                </div>
+            </div>
+
+            <div class="historia-block">
+                <div class="historia-table">
+                    <div class="historia-cell historia-img-cell">
+                        <img src="040042452c2c2e5e52134cf07242bb48.jpg" class="web-img historia-img" alt="Evolución de la Moda Moderna">
+                    </div>
+                    <div class="historia-cell historia-text historia-text-left">
+                        <h3>Evolución de la moda moderna</h3>
+                        <p>Durante los siglos XIX y XX, la moda evolucionó rápidamente gracias a los cambios sociales, culturales y tecnológicos. La época victoriana destacó por su elegancia formal y diseños sofisticados. Más adelante, los años 20 revolucionaron la moda femenina con prendas más cómodas y modernas que simbolizaban libertad e independencia.</p>
+                        <p>Las décadas posteriores introdujeron estilos únicos: el glamour clásico de los años 50, la rebeldía y color de los años 60, la esencia bohemia de los 70 y el minimalismo urbano de los 90. Cada generación aportó nuevas formas de expresión que siguen influyendo en la moda actual y en el estilo vintage contemporáneo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Épocas -->
+        <section id="epocas">
+            <h2 class="section-title">Épocas</h2>
+            <p class="section-subtitle">Cada época tiene su lenguaje de moda. Aquí te contamos las claves estéticas y las piezas emblemáticas de cada década para vestir con autenticidad.</p>
+            
+            <table class="epocas-table">
+                <!-- 1920 -->
+                <tr>
+                    <td class="epoca-info">
+                        <h3>Años 1920 – Los años del flapper</h3>
+                        <ul>
+                            <li><strong>Descripción:</strong> Siluetas rectas, flecos, perlas y bob. Moda liberada.</li>
+                            <li><strong>Piezas clave:</strong> Vestidos con caída, tocados, abrigos de piel sintética.</li>
+                        </ul>
+                    </td>
+                    <td class="epoca-img-cell">
+                        <img src="67afa70659eb773e23ef8980fd763ef7.jpg" class="web-img epoca-img" alt="Moda de 1920">
+                    </td>
+                </tr>
+                <!-- 1930 -->
+                <tr>
+                    <td class="epoca-info">
+                        <h3>Años 30 – Glamour Cinematográfico</h3>
+                        <ul>
+                            <li><strong>Descripción:</strong> Corte al bies, hombros suavizados, y estampados art déco.</li>
+                            <li><strong>Piezas clave:</strong> Vestidos largos, guantes, sombreros cloche.</li>
+                        </ul>
+                    </td>
+                    <td class="epoca-img-cell">
+                        <img src="3f7ac05d9f2f03f08810d28ed87e3446.jpg" class="web-img epoca-img" alt="Moda de 1930">
+                    </td>
+                </tr>
+                <!-- 1940 -->
+                <tr>
+                    <td class="epoca-info">
+                        <h3>Años 40 – Funcional y femenino</h3>
+                        <ul>
+                            <li><strong>Descripción:</strong> Influencia bélica: hombros marcados, cintura definida.</li>
+                            <li><strong>Piezas clave:</strong> Trajes sastre, faldas lápiz, abrigos estructurados.</li>
+                        </ul>
+                    </td>
+                    <td class="epoca-img-cell">
+                        <img src="5acfc57d318bd00c68305612e11b8524.jpg" class="web-img epoca-img" alt="Moda de 1940">
+                    </td>
+                </tr>
+                <!-- 1950 -->
+                <tr>
+                    <td class="epoca-info">
+                        <h3>Años 50 – Años de cintura y volumen</h3>
+                        <ul>
+                            <li><strong>Descripción:</strong> Siluetas en reloj de arena, estampados llamativos.</li>
+                            <li><strong>Piezas clave:</strong> Faldas lleno, vestidos coctel, kimonos.</li>
+                        </ul>
+                    </td>
+                    <td class="epoca-img-cell">
+                        <img src="6c631162e74b1ef7b72967fc3a1bf187.jpg" class="web-img epoca-img" alt="Moda de 1950">
+                    </td>
+                </tr>
+                <!-- 1960 -->
+                <tr>
+                    <td class="epoca-info">
+                        <h3>Años 60 – Revolución Pop juvenil</h3>
+                        <ul>
+                            <li><strong>Descripción:</strong> Minifaldas, líneas A, colores psicodélicos y estilo mod.</li>
+                            <li><strong>Piezas clave:</strong> Minivestidos, botas altas, estampados geométricos.</li>
+                        </ul>
+                    </td>
+                    <td class="epoca-img-cell">
+                        <img src="6e95fbc5dae8f8c1faaa40084ecefcb9.jpg" class="web-img epoca-img" alt="Moda de 1960">
+                    </td>
+                </tr>
+                <!-- 1970 -->
+                <tr>
+                    <td class="epoca-info">
+                        <h3>Años 70 – Boho y Disco</h3>
+                        <ul>
+                            <li><strong>Descripción:</strong> Mezcla de folk, punk y glamour nocturno.</li>
+                            <li><strong>Piezas clave:</strong> Pantalones campana, blusas evasé, monos.</li>
+                        </ul>
+                    </td>
+                    <td class="epoca-img-cell">
+                        <img src="07c755be3046b59f4906aa1c7648c4db.jpg" class="web-img epoca-img" alt="Moda de 1970">
+                    </td>
+                </tr>
+                <!-- 1980 -->
+                <tr>
+                    <td class="epoca-info">
+                        <h3>Años 80 – Exceso y Poder</h3>
+                        <ul>
+                            <li><strong>Descripción:</strong> Hombreras, colores neón, logos visibles.</li>
+                            <li><strong>Piezas clave:</strong> Blazers oversize, faldas lápiz, accesorios grandes.</li>
+                        </ul>
+                    </td>
+                    <td class="epoca-img-cell">
+                        <img src="7f4fa46c672eec5f27e8d47eddb6e2cf.jpg" class="web-img epoca-img" alt="Moda de 1980">
+                    </td>
+                </tr>
+                <!-- 1990 -->
+                <tr>
+                    <td class="epoca-info">
+                        <h3>Años 90 – Minimalismo y grunge</h3>
+                        <ul>
+                            <li><strong>Descripción:</strong> Siluetas relajadas, denim, camisetas básicas y actitud DIY.</li>
+                            <li><strong>Piezas clave:</strong> Jeans de tiro alto o bajo, camisas de franela, chokers.</li>
+                        </ul>
+                    </td>
+                    <td class="epoca-img-cell">
+                        <img src="9d0fbaab7b2e1f33fa8cd68e70dd242e.jpg" class="web-img epoca-img" alt="Moda de 1990">
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Diseñadores -->
+        <section id="disenadores">
+            <h2 class="section-title">Diseñadores</h2>
+            <p class="section-subtitle">Diseñadores que definieron tendencias y siguen inspirando el vintage actual.</p>
+            
+            <div class="disenadores-table">
+                <div class="disenador-item">
+                    <div class="disenador-box">
+                        <img src="30b4ef270d0986467a2be5be63406adb.jpg" class="web-img disenador-img" alt="Coco Chanel">
+                        <h3>Coco Chanel</h3>
+                        <p>Revolucionó la silueta femenina con prendas cómodas y elegantes; ícono del tweed y el little vestido negro.</p>
+                    </div>
+                </div>
+                <div class="disenador-item">
+                    <div class="disenador-box">
+                        <img src="52311ebf9e54ce5eb26609b5fad9f40a.jpg" class="web-img disenador-img" alt="Christian Dior">
+                        <h3>Christian Dior</h3>
+                        <p>"New Look": cintura marcada y faldas voluminosas; Lujo Posguerra.</p>
+                    </div>
+                </div>
+                <div class="disenador-item">
+                    <div class="disenador-box">
+                        <img src="70dfc1e93a447409a6900bba0f57f40b.jpg" class="web-img disenador-img" alt="Yves Saint Laurent">
+                        <h3>Yves Saint Laurent</h3>
+                        <p>Introdujo el esmoquin femenino y fusionó alta costura con estilo urbano.</p>
+                    </div>
+                </div>
+                <div class="disenador-item">
+                    <div class="disenador-box">
+                        <img src="79cbed0802c75e2282b742e3b2597d6a.jpg" class="web-img disenador-img" alt="Vivienne Westwood">
+                        <h3>Vivienne Westwood</h3>
+                        <p>Madre del punk; mezcla provocación, corte histórico y estética rebelde.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios">
+            <h2 class="section-title">Servicios</h2>
+            
+            <div class="servicios-table">
+                <div class="servicios-left">
+                    <div class="servicio-card">
+                        <h3>Asesoría de estilo vintage</h3>
+                        <p>Sesión personalizada para crear looks según tu cuerpo, personalidad y época preferida. Análisis de armario, propuestas de outfit, lista de compras vintage.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <h3>Alquiler de vestuario por época</h3>
+                        <p>Alquiler de prendas y accesorios para sesiones fotográficas, eventos y teatro. Selección por temática, ajuste básico y recogida/entrega opcional.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <h3>Restauración y reparación de prendas</h3>
+                        <p>Reparación profesional de costuras, forros, cierres y restauración de tejidos delicados. Diagnóstico, presupuesto, limpieza de manchas y plan de conservación.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <h3>Autenticación y tasación de prendas</h3>
+                        <p>Evaluación experta para certificar antigüedad, diseñador y valor de mercado. Informe con fotos, valoración y certificado digital opcional.</p>
+                    </div>
+                </div>
+                <div class="servicios-right">
+                    <img src="88b07b3f7f1b1dce11d6cb1754a40ad5.jpg" class="web-img servicios-gallery-img" alt="Galería Servicio 1">
+                    <img src="437ca28979332ec800fc49f39234f798.jpg" class="web-img servicios-gallery-img" alt="Galería Servicio 2">
+                    <img src="9043ecd604c8f70be13303facafab49e.jpg" class="web-img servicios-gallery-img" alt="Galería Servicio 3">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">¿Tienes una consulta, quieres alquilar o colaborar? Escríbenos.</p>
+            
+            <div class="contacto-table">
+                <div class="contacto-form-cell">
+                    <form action="#" method="post" onsubmit="event.preventDefault();">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Teléfono">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Correo electrónico">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Asunto">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Comentario"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+                
+                <div class="contacto-info-cell">
+                    <h3>Escríbenos en nuestras redes sociales</h3>
+                    <p><strong>Instagram:</strong> @vintage_vision</p>
+                    <p><strong>TikTok:</strong> @vintage.vision</p>
+                    <p><strong>Correo electrónico:</strong> contacto@vintagevision.com</p>
+                    <p><strong>WhatsApp:</strong> 0000-0000</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vintage Vision. Todos los derechos reservados. Actividad TBox - Paso 64.</p>
+    </footer>
+
+</body>
+</html>
